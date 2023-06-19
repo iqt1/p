@@ -1,0 +1,27 @@
+class RN:
+    def __init__(self):
+        self.pesos = None
+
+    def entrenar(self, entradas):
+        # Verifica si hay mas unos que ceros en las entradas
+        salida = 1 if sum(entradas) > len(entradas) / 2 else 0
+
+        return salida
+
+    # No se actualizan los pesos en esta implementación
+    def actualizar_pesos(self, entradas, salida_esperada):
+        pass
+
+
+red_neuronal = RN()
+# Obtención de los datos de entrada
+datos_entrada = input(
+    "Ingrese los valores de entrada separados por comas (solo ceros y unos): "
+)
+entradas = list(
+    map(int, datos_entrada.split(","))
+)  # USAMOS METODO SPLIT PARA HACER UNA LECTURA DE DATOS MAS SENCILLAS, ya que recibimos el string y lo cortamos con el caracter coma.
+
+# Evaluación de la red neuronal
+salida = red_neuronal.entrenar(entradas)
+print("Salida:", salida)
